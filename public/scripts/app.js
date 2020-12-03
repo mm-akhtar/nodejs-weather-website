@@ -25,10 +25,10 @@ weatherForm.addEventListener('submit', (e) => {
 
     p1.textContent = 'loading.....';
     p2.textContent = '';
-    fetch('https://api.weatherapi.com/v1/current.json?key=440d9b5b6e674865a41141002202911&q=' +location).then((res) => {
+    fetch('/weather?address='+location).then((res) => {
     res.json().then((data) => {
         if(data.error) {
-            p1.textContent = data.error.message;
+            p1.textContent = data.error;
         } else {
             p1.textContent = `${data.location.name}, ${data.location.region}, ${data.location.country}`
             p2.textContent = `${data.current.condition.text} Weather Condition, It is currently ${data.current.temp_c} degree Out And There is ${data.current.precip_in * 100} % chance of rain`

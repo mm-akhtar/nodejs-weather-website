@@ -4,6 +4,7 @@ const hbs = require('hbs');
 const weather = require('./utils/weather.js');
 
 const app = express();
+var port = process.env.PORT || 1000;
 // Define path for express config
 const viewPath = path.join(__dirname, '../templates/views');
 const partialsPath = path.join(__dirname, '../templates/partials');
@@ -46,7 +47,7 @@ app.get("/weather", (req, res) => {
     weather(req.query.address, (err, {current, location} = {}) => {
                 if(err) {
                     return res.send ({
-                        eroor: 'Please provide an address'
+                        error: 'Please provide an address'
                     })
                 } 
                 res.send({
@@ -91,8 +92,6 @@ app.get('*', (req, res) =>  {
 });
 
 
-
-
-app.listen(1000, () => {
-    console.log("server started");
+app.listen(port, () => {
+    console.log("server started at " + port);
 })
