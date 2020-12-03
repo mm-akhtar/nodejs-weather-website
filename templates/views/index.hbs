@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="/img/Nodejs.jpeg">
+    <link rel="stylesheet" href="./stylesheets/app.css">
+</head>
+<body>
+    <div class="main-content">
+        {{>header}}
+        <form>
+            {{!-- action="/weather?address={{name}}" --}}
+            <label for="location">Enter Location: </label>
+            <hr style="opacity:0;">
+            <input type="text" name="address" id="location">
+            <button>Submit</button>
+        </form>
+        <p id="p1"></p>
+        <p id="p2"></p>
+    </div>
+    <div class="foot">
+        {{>footer}} 
+    </div>
+
+    <script src="./scripts/app.js"></script>
+</body>
+</html>
